@@ -1,25 +1,20 @@
-module.exports = {
+const auth = {
+    namespaced: true,
     state: {
-        auth: {
-            user: null,
-            check: false,
-        },
+        user: null,
+        check: false,
     },
     mutations: {
         LOGIN_USER: (state, payload) => {
-            state.auth.user = payload;
-            state.auth.check = true;
+            state.user = payload;
+            state.check = true;
         },
-        LOG_OUT_USER: () => {
-            state.auth.user = null;
-            state.auth.check = false;
+        LOGOUT_USER: (state) => {
+            state.user = null;
+            state.check = false;
         }
     },
-
-    getters: {
-        doubleCount(state) {
-            return state.count * 2
-        }
-    }
+    getters: {},
 };
 
+export default auth
